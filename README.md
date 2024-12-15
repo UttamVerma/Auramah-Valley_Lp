@@ -1,6 +1,6 @@
 # Auramah Valley Landing Page
 
-Welcome to the **Auramah Valley ** Landing Page!  
+Welcome to the **Auramah Valley** Landing Page!  
 This is a real estate landing page created to showcase properties and investment opportunities offered by **ArroMavalley**. Built using **Vite** and **React.js**, the page is designed to provide a fast, dynamic, and responsive experience for potential customers and investors.
 
 This project was completed in 4 days and aims to showcase my ability to build efficient and interactive web applications while learning to use **Vite**. The landing page includes a fully functional contact form powered by **Nodemailer** for backend email handling.
