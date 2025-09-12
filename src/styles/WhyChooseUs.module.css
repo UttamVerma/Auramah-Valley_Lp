@@ -127,7 +127,9 @@
 }
 .img1 {
   border-radius: 20px;
-  width: 630px;
+  width: 600px;
+  height: 500px;
+  object-fit: contain;
 }
 .img2 {
   border-radius: 20px;

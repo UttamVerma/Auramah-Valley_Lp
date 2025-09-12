@@ -4,6 +4,8 @@ import bg from "../assets/aboutBg.png";
 import bigImage from "../assets/banner2.jpg";
 import smallImage from "../assets/banner3.jpg";
 import Button from "./Button";
+import Himalya from "../assets/HimalayanCountryEstate1.png";
+import Himalya2 from "../assets/HimalayanCountryEstate2.png";
 
 let About = () => {
   let aboutRef = useRef(null);
@@ -33,7 +35,7 @@ let About = () => {
     };
   }, []);
   return (
-    <div className={styles.about}>
+    <div className={styles.about} id="about">
       <div className={styles.innerAbout}>
         <div
           className={`${styles.imageSection} ${styles.animationSection} ${
@@ -41,20 +43,17 @@ let About = () => {
           }`}
           ref={aboutRef}
         >
-          <img alt="First Image" className={styles.bigImage} src={bigImage} />
+          <img alt="Himalayan Estate" className={styles.bigImage} src={Himalya} />
           <img
-            alt="Small Image"
+            alt="Auramah Valley View"
             className={styles.smallImage}
-            src={smallImage}
+            src={Himalya2}
           />
-          <img alt="Bg Image" className={styles.bgImage} src={bg} />
-          <div
-            className={styles.imageDetailsSection}
-          >
-            <h5>Lorem heading here</h5>
+          <img alt="Background Image" className={styles.bgImage} src={bg} />
+          <div className={styles.imageDetailsSection}>
+            <h5>Discover Auramah Valley</h5>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste
-              fugit quaerat eaque ipsum enim eos
+              Nestled in the serene Himalayas, Auramah Valley offers a perfect blend of luxury and nature, designed for those seeking tranquility and elegance.
             </p>
           </div>
         </div>
@@ -63,26 +62,16 @@ let About = () => {
             } ${isFirstView ? styles.showAnimationSection : ""}`}>
           <div className={styles.yellowLineFlex}>
             <div></div>
-            <h5>About Us</h5>
+            <h5>About Auramah Valley</h5>
           </div>
           <h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
-            mollitia!
+            Himalayan Country Estate: A Sanctuary of Peace and Luxury
           </h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-            ad officiis consequuntur distinctio unde itaque eligendi suscipit
-            laboriosam quod nostrum quas et ea laudantium reiciendis
-            exercitationem omnis cupiditate pariatur laborum, saepe sapiente!
-            Inventore et rem voluptatem similique beatae dolores aliquam
-            maiores, distinctio nesciunt blanditiis mollitia praesentium odit,
-            natus exercitationem nemo!
+            Auramah Valley Himalayan Country Estate is a premier real estate destination located in the heart of the Himalayas. Offering breathtaking views, world-class amenities, and sustainable living, our estate is designed to provide an unparalleled lifestyle. Whether you're looking for a vacation home, a permanent residence, or an investment opportunity, Auramah Valley promises a harmonious blend of modern luxury and natural beauty.
           </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
-            consectetur magni quisquam dolorem perspiciatis non fugit. Tenetur,
-            dolorum natus eaque nam inventore facere pariatur accusamus
-            aspernatur nesciunt quibusdam exercitationem eligendi?
+            Our properties are crafted with eco-friendly materials and innovative designs, ensuring comfort and sustainability. With proximity to scenic trails, wellness centers, and cultural landmarks, Auramah Valley is more than a home—it's a lifestyle. Explore the opportunity to own a piece of paradise in the Himalayas.
           </p>
           <Button text={"Enquire Now"} />
         </div>

@@ -59,7 +59,7 @@
       rgba(0, 0, 0, 0.5) 30%,
       rgba(0, 0, 0, 0.01)
     ),
-    url(../assets/type1.svg);
+    url(../assets/luxuryhimalyanvillas.png);
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
@@ -72,7 +72,7 @@
       rgba(0, 0, 0, 0.5) 30%,
       rgba(0, 0, 0, 0.01)
     ),
-    url(../assets/type2.svg);
+    url(../assets/NatureTrails.png);
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 1;
@@ -85,7 +85,7 @@
       rgba(0, 0, 0, 0.5) 30%,
       rgba(0, 0, 0, 0.01)
     ),
-    url(../assets/type3.svg);
+    url(../assets/WellnessRetreat.png);
   grid-column-start: 4;
   grid-column-end: 5;
   grid-row-start: 1;
@@ -111,7 +111,7 @@
       rgba(0, 0, 0, 0.5) 30%,
       rgba(0, 0, 0, 0.01)
     ),
-    url(../assets/type5.svg);
+    url(../assets/CulturalExperiences.jpg);
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 2;
@@ -124,7 +124,7 @@
       rgba(0, 0, 0, 0.5) 30%,
       rgba(0, 0, 0, 0.01)
     ),
-    url(../assets/type6.svg);
+    url(../assets/SustainableDesign.png);
   grid-column-start: 3;
   grid-column-end: 5;
   grid-row-start: 2;

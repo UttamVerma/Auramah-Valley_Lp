@@ -1,29 +1,4 @@
-// import styles from "../styles/Navbar.module.css";
-// import logo from "../assets/logo.png";
-
-// let Navbar = () => {
-//   return (
-//     <div className={styles.navbar}>
-      
-//       <div className={styles.innerNavbar}>
-//         <a href="/home">
-//           <img src={logo} alt="Logo" className={styles.logo}/>
-//         </a>
-//         <div className={styles.optionsDiv}>
-//           <a href="/section1">Section 1</a>
-//           <a href="/section2">Section 2</a>
-//           <a href="/section3">Section 3</a>
-//           <a href="/section4">Section 4</a>
-//           <a href="/section5">Section 5</a>
-//           <a href="/section6">Section 6</a>
-//           <a href="/section7">Section 7</a>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Navbar;
+ 
 import styles from "../styles/Navbar.module.css";
 import logo from "../assets/logo.png";
 import hamburger from "../assets/hamburger.png";
@@ -33,22 +8,34 @@ import { useState } from "react";
 let Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
 
+  const handleScroll = (e, sectionId) => {
+    e.preventDefault();
+    console.log(`Attempting to scroll to section: ${sectionId}`); // Debugging
+    const section = document.getElementById(sectionId);
+    if (section) {
+      console.log(`Found section: ${sectionId}`); // Debugging
+      section.scrollIntoView({ behavior: "smooth" });
+    } else {
+      console.log(`Section not found: ${sectionId}`); // Debugging
+    }
+    setShowMenu(false); // Close mobile menu
+  };
+
   return (
     <>
       {/* Regular Navbar */}
       <div className={styles.navbar}>
         <div className={styles.innerNavbar}>
-          <a href="/home">
-            <img src={logo} alt="Logo" className={styles.logo} />
+          <a href="#home" onClick={(e) => handleScroll(e, "home")}>
+            <img src={logo} alt="Auramah Valley Logo" className={styles.logo} />
           </a>
           <div className={styles.optionsDiv}>
-            <a href="/section1">Section 1</a>
-            <a href="/section2">Section 2</a>
-            <a href="/section3">Section 3</a>
-            <a href="/section4">Section 4</a>
-            <a href="/section5">Section 5</a>
-            <a href="/section6">Section 6</a>
-            <a href="/section7">Section 7</a>
+            <a href="#about" onClick={(e) => handleScroll(e, "about")}>About Us</a>
+            <a href="#featured-property" onClick={(e) => handleScroll(e, "featured-property")}>Featured Property</a>
+            <a href="#features" onClick={(e) => handleScroll(e, "features")}>Features Project</a>
+            <a href="#why-choose-us" onClick={(e) => handleScroll(e, "why-choose-us")}>Why Choose Us</a>
+            <a href="#explore" onClick={(e) => handleScroll(e, "explore")}>Explore</a>
+            <a href="#contact" onClick={(e) => handleScroll(e, "contact")}>Contact Us</a>
           </div>
         </div>
       </div>
@@ -56,14 +43,17 @@ let Navbar = () => {
       {/* Mobile Navbar (Hamburger Icon) */}
       <div className={styles.smallNavbar}>
         <div className={styles.logoDiv}>
-          <a href="/home">
-            <img src={logo} alt="Logo" className={styles.logo} />
+          <a href="#home" onClick={(e) => handleScroll(e, "home")}>
+            <img src={logo} alt="Auramah Valley Logo" className={styles.logo} />
           </a>
         </div>
         <img
           src={hamburger}
           className={styles.hamburger}
-          onClick={() => setShowMenu(true)}
+          onClick={() => {
+            console.log("Hamburger clicked, showMenu:", !showMenu); // Debugging
+            setShowMenu(true);
+          }}
           alt="Hamburger Menu"
         />
       </div>
@@ -73,7 +63,10 @@ let Navbar = () => {
         className={`${styles.hamburgerParent} ${showMenu ? styles.showHamburger : ""}`}
       >
         <div
-          onClick={() => setShowMenu(false)}
+          onClick={() => {
+            console.log("Overlay clicked, closing menu"); // Debugging
+            setShowMenu(false);
+          }}
           className={`${styles.hamburgerOverlay} ${showMenu ? styles.showMenu : ""}`}
         ></div>
         <div
@@ -84,18 +77,21 @@ let Navbar = () => {
             <img
               src={close}
               className={styles.closeIcon}
-              onClick={() => setShowMenu(false)}
+              onClick={() => {
+                console.log("Close icon clicked, closing menu"); // Debugging
+                setShowMenu(false);
+              }}
               alt="Close"
             />
           </div>
           <div className={styles.smallOptionsDiv}>
-            <a href="/section1" onClick={() => setShowMenu(false)}>Section 1</a>
-            <a href="/section2" onClick={() => setShowMenu(false)}>Section 2</a>
-            <a href="/section3" onClick={() => setShowMenu(false)}>Section 3</a>
-            <a href="/section4" onClick={() => setShowMenu(false)}>Section 4</a>
-            <a href="/section5" onClick={() => setShowMenu(false)}>Section 5</a>
-            <a href="/section6" onClick={() => setShowMenu(false)}>Section 6</a>
-            <a href="/section7" onClick={() => setShowMenu(false)}>Section 7</a>
+            <a href="#home" onClick={(e) => handleScroll(e, "home")}>Home</a>
+            <a href="#about" onClick={(e) => handleScroll(e, "about")}>About Us</a>
+            <a href="#features" onClick={(e) => handleScroll(e, "features")}>Features</a>
+            <a href="#explore" onClick={(e) => handleScroll(e, "explore")}>Explore</a>
+            <a href="#why-choose-us" onClick={(e) => handleScroll(e, "why-choose-us")}>Why Choose Us</a>
+            <a href="#featured-property" onClick={(e) => handleScroll(e, "featured-property")}>Featured Property</a>
+            <a href="#contact" onClick={(e) => handleScroll(e, "contact")}>Contact Us</a>
           </div>
         </div>
       </div>
@@ -104,3 +100,4 @@ let Navbar = () => {
 };
 
 export default Navbar;
+ 

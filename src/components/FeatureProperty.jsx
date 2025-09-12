@@ -4,6 +4,7 @@ import bigImage from "../assets/homeThree.jpg";
 import smallImage from "../assets/homeTwo.jpg";
 import Button from "./Button";
 
+ 
 let FeatureProperty = () => {
   let aboutRef = useRef(null);
   let [isFirstView, setIsFirstView] = useState(false);
@@ -32,7 +33,7 @@ let FeatureProperty = () => {
     };
   }, []);
   return (
-    <div className={styles.FeatureProperty}>
+    <div className={styles.FeatureProperty} id="featured-property">
       <div className={styles.innerFeatureProperty}>
         <div
           className={`${styles.FeaturePropertyContent} ${
@@ -41,27 +42,17 @@ let FeatureProperty = () => {
           ref={aboutRef}
         >
           <div className={styles.yellowLineFlex}>
-            <h5>Feature Property </h5>
+            <h5>Featured Property</h5>
             <div></div>
           </div>
           <h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
-            mollitia!
+            Luxurious Himalayan Villas at Auramah Valley
           </h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-            ad officiis consequuntur distinctio unde itaque eligendi suscipit
-            laboriosam quod nostrum quas et ea laudantium reiciendis
-            exercitationem omnis cupiditate pariatur laborum, saepe sapiente!
-            Inventore et rem voluptatem similique beatae dolores aliquam
-            maiores, distinctio nesciunt blanditiis mollitia praesentium odit,
-            natus exercitationem nemo!
+            Discover the epitome of luxury with our featured villas at Auramah Valley Himalayan Country Estate. These residences combine modern architecture with eco-friendly design, offering spacious interiors, panoramic mountain views, and access to exclusive amenities. Perfect for those seeking a serene retreat or a prestigious investment in the heart of the Himalayas.
           </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
-            consectetur magni quisquam dolorem perspiciatis non fugit. Tenetur,
-            dolorum natus eaque nam inventore facere pariatur accusamus
-            aspernatur nesciunt quibusdam exercitationem eligendi?
+            Each villa is thoughtfully designed with sustainable materials, large windows for natural light, and private terraces to immerse you in the breathtaking surroundings. Enjoy proximity to wellness centers, nature trails, and cultural experiences, making your home a gateway to both relaxation and adventure.
           </p>
           <Button text={"Enquire Now"} />
         </div>
@@ -70,9 +61,9 @@ let FeatureProperty = () => {
             isFirstView ? styles.showAnimationSection : ""
           }`}
         >
-          <img alt="First Image" className={styles.bigImage} src={bigImage} />
+          <img alt="Villa Exterior" className={styles.bigImage} src={bigImage} />
           <img
-            alt="Small Image"
+            alt="Villa Interior"
             className={styles.smallImage}
             src={smallImage}
           />

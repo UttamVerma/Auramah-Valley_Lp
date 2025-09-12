@@ -11,7 +11,7 @@ import WhyChooseUs from "../components/WhyChooseUs";
 import Explore from "../components/Explore";
 import ContactForm from "../components/ContactForm";
 import FeatureProperty from "../components/FeatureProperty";
-
+ 
 let Home = () => {
   return (
     <>
@@ -19,28 +19,28 @@ let Home = () => {
         <title>Auramah Valley</title>
         <meta
           name="description"
-          content="Nature’s NestA home amidst the Auramah HillsLEARN MOREBuilding EnigmaticLifestyle For SupremacyLEARN MOREExperienceThe Freshness Of NatureLEARN MOREDive into luxurywith our self heating swimming poolLEARN MOREResideIn The Heart Of MountainsLEARN MOREImmerse YourselfInto The World Of LuxuryLEARN MORE STAY IN THE LAP OF NATURE Ultra-luxury Homes spread across 100 acres of forest."
+          content="Discover Auramah Valley Himalayan Country Estate, offering ultra-luxury homes amidst 100 acres of pristine Himalayan forest. Experience sustainable living, modern amenities, and breathtaking mountain views."
         />
         <meta name="title" property="og:title" content="Auramah Valley" />
         <meta property="og:image" content={logo} />
         <meta property="og:image:type" content="image/png" />
         <meta
           property="og:description"
-          content="Nature’s NestA home amidst the Auramah HillsLEARN MOREBuilding EnigmaticLifestyle For SupremacyLEARN MOREExperienceThe Freshness Of NatureLEARN MOREDive into luxurywith our self heating swimming poolLEARN MOREResideIn The Heart Of MountainsLEARN MOREImmerse YourselfInto The World Of LuxuryLEARN MORE STAY IN THE LAP OF NATURE Ultra-luxury Homes spread across 100 acres of forest."
+          content="Discover Auramah Valley Himalayan Country Estate, offering ultra-luxury homes amidst 100 acres of pristine Himalayan forest. Experience sustainable living, modern amenities, and breathtaking mountain views."
         />
-        <meta name="Keywords" content="Punjab, Real Estate, Chandigarh" />
+        <meta name="Keywords" content="Himalayas, Real Estate, Luxury Homes, Sustainable Living" />
       </Helmet>
       <ToastContainer />
       <div className={styles.home}>
         <Navbar />
-        <Banner />
-        <About />
-        <FeatureProperty/>
-        <Features/>
-        <WhyChooseUs/>
-        <Explore />
-        <ContactForm />
-        <Footer />
+        <Banner id="home" />
+        <About id="about" />
+        <FeatureProperty id="featured-property" />
+        <Features id="features" />
+        <WhyChooseUs id="why-choose-us" />
+        <Explore id="explore" />
+        <ContactForm id="contact" />
+        <Footer id="footer" />
       </div>
     </>
   );

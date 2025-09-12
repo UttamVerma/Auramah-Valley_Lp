@@ -7,9 +7,13 @@ import banner5 from "../assets/banner6.jpg";
 import banner6 from "../assets/banner7.jpg";
 import styles from "../styles/Banner.module.css";
 import Button from "./Button";
+import Bannerr from "../assets/banner_01.jpg";
+import Bannerr2 from "../assets/banner_02.png";
+import Bannerr3 from "../assets/banner_03.png";
+import Bannerr4 from "../assets/banner_05.jpg";
 
 let Banner = () => {
-  let images = [banner, banner5, banner6, banner3];
+  let images = [Bannerr, Bannerr2, Bannerr3, Bannerr4];
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -19,21 +23,21 @@ let Banner = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-    let [showForm, setShowForm, showWaitingLoading, setShowWaitingLoading] =
-      useContext(AuthContext);
-    const notifySuccess = () => {
-      toast.success('Form Submitted Successfully', {
-        position: 'top-center',
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'colored',
-        transition: Bounce,
-      });
-    };
+  let [showForm, setShowForm, showWaitingLoading, setShowWaitingLoading] =
+    useContext(AuthContext);
+  const notifySuccess = () => {
+    toast.success('Form Submitted Successfully', {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+      transition: Bounce,
+    });
+  };
 
   const notifyError = () => {
     toast.error("Please try again later.", {
@@ -53,36 +57,17 @@ let Banner = () => {
   let [email, setEmail] = useState("");
   let [message, setMessage] = useState("");
   const FormHandler = async (e) => {
-    setShowWaitingLoading(true);
     e.preventDefault();
+    setShowWaitingLoading(true);
 
     try {
-      const response = await fetch(
-        "https://ibc-nodemailer.onrender.com/send-email",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            from: email,
-            to: "creativemonktesting@gmail.com",
-            subject: "Contact Form Submission",
-            text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-          }),
-        }
-      );
-
-      if (response.ok) {
-        notifySuccess();
-        setShowWaitingLoading(false);
-        setTimeout(() => {
-          window.location.href="/thankyou"
-        }, 5000);
-      } else {
-        setShowWaitingLoading(false);
-        notifyError();
-      }
+      // Instead of sending an email, append "sended" to the message
+      setMessage((prevMessage) => prevMessage + " sended");
+      notifySuccess();
+      setShowWaitingLoading(false);
+      setTimeout(() => {
+        window.location.href = "/thankyou";
+      }, 5000);
     } catch (error) {
       notifyError();
       setShowWaitingLoading(false);
@@ -128,7 +113,7 @@ let Banner = () => {
                 transform: activeIndex === index ? "scale(1.1)" : "scale(1)",
               }}
               src={item}
-              alt={`banner${index + 1}`}
+              alt={`Auramah Valley View ${index + 1}`}
               key={index}
             />
           );
@@ -141,18 +126,13 @@ let Banner = () => {
             } ${isFirstView ? styles.showAnimationSection : ""}`}
           >
             <h1>
-                Lorem ipsum, dolor sit amet consectetur
-              adipisicing elit.
+              Welcome to Auramah Valley Himalayan Country Estate
             </h1>
-            {/* <div className={styles.outlinedText}>BOOST</div> */}
-
             <p>
-              Et beatae quo esse veniam iste aperiam facere tempora officia
-              animi ab molestiae repudiandae libero quae, error reprehenderit
-              alias ea atque perferendis!
+              Nestled in the heart of the Himalayas, Auramah Valley offers a unique blend of luxury, tranquility, and natural beauty. Discover your dream home in a serene sanctuary designed for sustainable living and unparalleled comfort.
             </p>
             <span className={styles.encquireNowButton}>
-            <Button text={'Enquire Now'}/>
+              <Button text={'Enquire Now'}/>
             </span>
           </div>
           <div
@@ -160,7 +140,7 @@ let Banner = () => {
               styles.animationSection
             } ${isFirstView ? styles.showAnimationSection : ""}`}
           >
-            <h3>Download Brochure Now</h3>
+            <h3>Download Our Brochure</h3>
             <form onSubmit={FormHandler}>
               <div>
                 <input

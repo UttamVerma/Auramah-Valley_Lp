@@ -41,41 +41,25 @@ let PopupForm = () => {
   let [message, setMessage] = useState("");
 
   const FormHandler = async (e) => {
-    setShowWaitingLoading(true);
     e.preventDefault();
+    setShowWaitingLoading(true);
 
     try {
-      const response = await fetch(
-        "https://ibc-nodemailer.onrender.com/send-email",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            from: email,
-            to: "creativemonktesting@gmail.com",
-            subject: "Contact Form Submission",
-            text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-          }),
-        }
-      );
-
-      if (response.ok) {
-        notifySuccess();
-        setShowWaitingLoading(false);
-        setTimeout(() => {
-          window.location.href="/thankyou"
-        }, 5000);
-      } else {
-        setShowWaitingLoading(false);
-        notifyError();
-      }
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      
+      // Instead of sending an email, append "sended" to the message
+      setMessage((prevMessage) => prevMessage + " sended");
+      notifySuccess();
+      setShowWaitingLoading(false);
+      setTimeout(() => {
+        window.location.href = "/thankyou";
+      }, 5000);
     } catch (error) {
       notifyError();
       setShowWaitingLoading(false);
     }
   };
+
   return (
     <>
       <ToastContainer />

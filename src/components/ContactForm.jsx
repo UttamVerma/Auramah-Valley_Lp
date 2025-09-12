@@ -58,8 +58,6 @@ const ContactForm = () => {
     });
   };
 
-  
-
   const notifyError = () => {
     toast.error("Please try again later.", {
       position: "top-center",
@@ -100,54 +98,40 @@ const ContactForm = () => {
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      setShowWaitingLoading(false);
       return;
     }
 
     setErrors({});
 
     try {
-      const response = await fetch(
-        "https://ibc-nodemailer.onrender.com/send-email",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            from: formData.email,
-            to: "creativemonktesting@gmail.com",
-            subject: "Real Estate Inquiry Form Submission",
-            text: `Inquiry Type: ${formData.inquiryType}\nName: ${formData.name}\nEmail: ${formData.email}\nRole: ${formData.role}\nMax Price: ${formData.maxPrice}\nMin Size: ${formData.minSize}`,
-          }),
-        }
-      );
-
-      if (response.ok) {
-        notifySuccess();
-        setShowWaitingLoading(false);
-        setFormData({
-          inquiryType: "",
-          address: "",
-          name: "",
-          email: "",
-          role: "",
-          maxPrice: "",
-          minSize: "",
-        });
-      } else {
-        notifyError();
-        setShowWaitingLoading(false);
-      }
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Instead of sending an email, append "sended" to inquiryType
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        inquiryType: prevFormData.inquiryType + " sended",
+      }));
+      notifySuccess();
+      setShowWaitingLoading(false);
+      setFormData({
+        inquiryType: "",
+        address: "",
+        name: "",
+        email: "",
+        role: "",
+        maxPrice: "",
+        minSize: "",
+      });
     } catch (error) {
       notifyError();
-      setShowWaitingLoading(false); 
+      setShowWaitingLoading(false);
     }
   };
 
   return (
     <>
       <ToastContainer />
-      <div className={styles.ContactFormParent}>
+      <div className={styles.ContactFormParent} id="contact">
         <div className={styles.ContactFormChild} ref={aboutRef}>
           <div
             className={`${styles.ContactFormContent} ${
@@ -265,7 +249,7 @@ const ContactForm = () => {
                     placeholder="e.g. 500"
                     value={formData.maxPrice}
                     onChange={handleChange}
-                    min="0" // This prevents values below 0
+                    min="0"
                     className={errors.maxPrice ? styles.error : ""}
                   />
                 </div>
@@ -281,7 +265,7 @@ const ContactForm = () => {
                     placeholder="e.g. 20"
                     value={formData.minSize}
                     onChange={handleChange}
-                    min="0" // This prevents values below 0
+                    min="0"
                     className={errors.minSize ? styles.error : ""}
                   />
                 </div>

@@ -182,7 +182,7 @@
   }
 }
 
-@media all and (max-width: 1050px) {
+/* @media all and (max-width: 1050px) {
   .innerNavbar {
     width: 900px;
   }
@@ -190,16 +190,16 @@
   .optionsDiv {
     width: 700px;
   }
-}
+} */
 
-@media all and (max-width: 950px) {
+/* @media all and (max-width: 950px) {
   .innerNavbar {
     width: 95%;
   }
-}
+} */
 
 /* Media Queries for Responsiveness */
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
   .navbar {
     display: none;
   }
