@@ -127,7 +127,7 @@
 }
 .img1 {
   border-radius: 20px;
-  width: 400px;
+  width: 300px;
 }
 .img2 {
   border-radius: 20px;
@@ -216,5 +216,10 @@
 @media all and (max-width: 950px) {
   .FeaturesChild {
     width: 95vw;
+  }
+}
+@media all and (max-width: 1400px) and (min-width: 1300px) {
+  .img1 {
+    width: 200px;
   }
 }
